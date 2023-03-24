@@ -54,7 +54,8 @@ public class Crab : MonoBehaviour
     {
         if (collision.gameObject.name.StartsWith("Worm"))
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+            collision.gameObject.transform.position = new Vector3(Random.Range(-4.5f, 4.5f), Random.Range(-4.5f, 4.5f), 0);
             score = score + 1;
             scoreDisplay.text = "Score: " + score;
         }
