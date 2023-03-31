@@ -54,10 +54,17 @@ public class Crab : MonoBehaviour
     {
         if (collision.gameObject.name.StartsWith("Worm"))
         {
+            Debug.Log(collision.gameObject.name);
             //Destroy(collision.gameObject);
             collision.gameObject.transform.position = new Vector3(Random.Range(-4.5f, 4.5f), Random.Range(-4.5f, 4.5f), 0);
             score = score + 1;
             scoreDisplay.text = "Score: " + score;
+        }
+        if (collision.gameObject.name.StartsWith("Lobster"))
+        {
+            // game over text
+            // pause game
+            // esc to restart
         }
     }
 }
