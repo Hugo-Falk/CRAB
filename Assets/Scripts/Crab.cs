@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 
@@ -10,6 +11,7 @@ public class Crab : MonoBehaviour
     private Rigidbody2D rb;
     private float speed = 4;
     public Text scoreDisplay;
+    public Text gameover;   
     private int score = 0;
 
     // Start is called before the first frame update
@@ -20,6 +22,17 @@ public class Crab : MonoBehaviour
         rb.freezeRotation = true;
         // remove gravity
         rb.gravityScale = 0;
+        gameover.enabled = false;
+
+    }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))  // esc to restart
+        {
+            Debug.Log("ladda om scenen");
+            Time.timeScale = 1;
+            SceneManager.LoadScene("SampleScene"); // ladda om scenen 
+        }
     }
 
     // Update is called once per frame
@@ -62,9 +75,8 @@ public class Crab : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("Lobster"))
         {
-            // game over text
-            // pause game
-            // esc to restart
+            Time.timeScale = 0;  // pause game
+            gameover.enabled = true;   // game over text
         }
     }
 }

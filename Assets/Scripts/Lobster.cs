@@ -8,8 +8,8 @@ public class Lobster : MonoBehaviour
     // Start is called before the first frame update
     private Rigidbody2D rb;
     private float speed = 3;
-    public Text scoreDisplay;
-    private int score = 0;
+    //public Text scoreDisplay;
+    //private int score = 0;
     private GameObject crab;
     void Start()
     {
